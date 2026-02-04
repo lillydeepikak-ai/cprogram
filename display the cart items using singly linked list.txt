@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct cart{
+ int item;
+    struct cart *next;
+};
+int main(){
+    struct cart *c1 = (struct cart*)malloc(sizeof(struct cart));
+    struct cart *c2 = (struct cart*)malloc(sizeof(struct cart));
+    struct cart *c3 = (struct cart*)malloc(sizeof(struct cart));
+    c1->item = 100;
+    c2->item = 200;
+    c3->item = 300;
+    c3->next = c2;
+    c2->next = c1;
+    c1->next = NULL;
+    struct cart *head = c3;
+    while(head!=NULL){
+        printf("%d---->",head->item);
+        head = head->next;
+    }
+    printf("NULL");
+    return 0;
+}

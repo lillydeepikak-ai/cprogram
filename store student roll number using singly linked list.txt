@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct student{
+     int roll;
+    struct student *next;
+};
+int main(){
+    struct student *s1 = (struct student*)malloc(sizeof(struct student));
+    struct student *s2 = (struct student*)malloc(sizeof(struct student));
+    s1->roll =1;
+    s2->roll =2;
+    s1->next = s2;
+    s2->next = NULL;
+    struct student *head = s1;
+    while(head!=NULL){
+        printf("Roll %d---->",head->roll);
+        head = head->next;
+    }
+    printf("NULL");
+    return 0;
+}
